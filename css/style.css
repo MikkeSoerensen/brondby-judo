@@ -15,6 +15,7 @@
   --mat:#2c4fb8; --mat-ink:#ffffff; --gold:#f5c400; --gold-ink:#1a1400; --soft:#17234a; --accent-text:#f5c400; color-scheme:dark}
 
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body)}
