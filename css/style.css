@@ -127,7 +127,7 @@ nav a.cta{background:var(--gold);color:var(--gold-ink)}
 .tag{display:inline-block;font:700 .7rem/1 var(--body);letter-spacing:.08em;text-transform:uppercase;padding:5px 7px;border-radius:4px;background:var(--gold);color:var(--gold-ink);vertical-align:middle;margin-left:6px}
 
 /* Lightbox */
-.lb{position:fixed;inset:0;z-index:50;background:rgba(5,10,25,.92);display:grid;grid-template-rows:auto 1fr auto;padding:calc(12px + env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));color:#fff}
+.lb:not([hidden]){position:fixed;inset:0;z-index:50;background:rgba(5,10,25,.92);display:grid;grid-template-rows:auto 1fr auto;padding:calc(12px + env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));color:#fff}
 .lb-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .lb-stage{display:grid;place-items:center;min-height:0}
 .lb-stage .ph{width:min(90vw,900px);max-height:70vh;aspect-ratio:3/2;border-radius:8px;font-size:1.2rem}
