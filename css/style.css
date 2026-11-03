@@ -1,18 +1,18 @@
-/* Layout: tatami-inspireret – blå/gul konkurrencemåtte (også Brøndbys farver), én kolonne af tydelige sektioner */
+/* Layout: klubbens sort/rød/gul – sort header og hero som dojo-væggen, rød til handling, gul til fremhævning */
 :root{
-  --bg:#f5f7fb; --surface:#ffffff; --ink:#0f1a33; --muted:#4f5b75;
-  --line:#dbe1ec; --mat:#1e3a8a; --mat-ink:#ffffff; --gold:#f5c400; --gold-ink:#1a1400;
-  --soft:#e8edf8; --accent-text:#1e3a8a;
+  --bg:#f6f5f4; --surface:#ffffff; --ink:#141414; --muted:#5a5552;
+  --line:#e2dedb; --mat:#121212; --mat-ink:#ffffff; --gold:#ffcc00; --gold-ink:#1a1400;
+  --red:#d0161e; --red-ink:#ffffff; --soft:#efecea; --accent-text:#b3121a;
   --display:"Saira Condensed","Arial Narrow",Arial,sans-serif;
   --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
   --r:10px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0b1224; --surface:#121b33; --ink:#e9eefb; --muted:#a3afc9; --line:#24304f;
-  --mat:#2c4fb8; --mat-ink:#ffffff; --gold:#f5c400; --gold-ink:#1a1400; --soft:#17234a; --accent-text:#f5c400; color-scheme:dark}}
+  --bg:#0e0e0f; --surface:#19191b; --ink:#f1efed; --muted:#aaa5a1; --line:#2c2b2d;
+  --mat:#000000; --mat-ink:#ffffff; --gold:#ffcc00; --gold-ink:#1a1400; --red:#e5232b; --red-ink:#ffffff; --soft:#222124; --accent-text:#ffcc00; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0b1224; --surface:#121b33; --ink:#e9eefb; --muted:#a3afc9; --line:#24304f;
-  --mat:#2c4fb8; --mat-ink:#ffffff; --gold:#f5c400; --gold-ink:#1a1400; --soft:#17234a; --accent-text:#f5c400; color-scheme:dark}
+  --bg:#0e0e0f; --surface:#19191b; --ink:#f1efed; --muted:#aaa5a1; --line:#2c2b2d;
+  --mat:#000000; --mat-ink:#ffffff; --gold:#ffcc00; --gold-ink:#1a1400; --red:#e5232b; --red-ink:#ffffff; --soft:#222124; --accent-text:#ffcc00; color-scheme:dark}
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -34,14 +34,15 @@ section{padding-block:56px}
 .head{display:grid;gap:10px;margin-bottom:24px}
 
 /* Header */
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--mat);color:var(--mat-ink)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--mat);color:var(--mat-ink);border-bottom:1px solid rgba(255,255,255,.08)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px;position:relative}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 1.35rem/1 var(--display);text-transform:uppercase;letter-spacing:.02em}
 .mark{width:34px;height:34px;border-radius:50%;background:var(--gold);display:grid;place-items:center;color:var(--gold-ink);font:800 .95rem/1 var(--display)}
 nav ul{display:flex;gap:2px;list-style:none;margin:0;padding:0}
 nav a{display:block;padding:8px 11px;border-radius:6px;text-decoration:none;font-weight:600;font-size:.95rem}
 nav a:hover{background:rgba(255,255,255,.12)}
-nav a.cta{background:var(--gold);color:var(--gold-ink)}
+nav a.cta{background:var(--red);color:var(--red-ink)}
+nav a.cta:hover{background:var(--red);filter:brightness(1.1)}
 .menu-btn{display:none;background:none;border:1.5px solid rgba(255,255,255,.5);color:inherit;border-radius:6px;padding:7px 12px;font:600 .95rem var(--body);cursor:pointer}
 @media (max-width:860px){
   .menu-btn{display:block}
@@ -54,12 +55,13 @@ nav a.cta{background:var(--gold);color:var(--gold-ink)}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:8px;font-weight:700;text-decoration:none;border:2px solid transparent;cursor:pointer;font-family:var(--body);font-size:1rem}
 .btn.gold{background:var(--gold);color:var(--gold-ink)}
 .btn.ghost{border-color:rgba(255,255,255,.55);color:var(--mat-ink);background:none}
-.btn.ink{background:var(--mat);color:var(--mat-ink)}
+.btn.ink{background:var(--red);color:var(--red-ink)}
+.btn.red{background:var(--red);color:var(--red-ink)}
 .btn.line{border-color:var(--line);background:var(--surface);color:var(--ink)}
 
 /* Hero */
 .hero{background:var(--mat);color:var(--mat-ink);position:relative}
-.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:12px;background:var(--gold)}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:14px;background:linear-gradient(var(--red) 0 50%,var(--gold) 50% 100%)}
 .hero .wrap{padding-block:48px 64px;display:grid;gap:28px;grid-template-columns:1.3fr 1fr;align-items:end}
 .hero h1{font-size:clamp(2.8rem,8vw,5.2rem);font-weight:800;text-transform:uppercase}
 .hero h1 span{color:var(--gold)}
@@ -76,7 +78,7 @@ nav a.cta{background:var(--gold);color:var(--gold-ink)}
 .day h3{background:var(--soft);padding:10px 14px;font-size:1.25rem;display:flex;justify-content:space-between;align-items:center}
 .day.today{box-shadow:0 0 0 2px var(--gold);border-color:var(--gold)}
 .day.today h3{background:var(--gold);color:var(--gold-ink)}
-.pill{font:700 .7rem/1 var(--body);letter-spacing:.08em;text-transform:uppercase;background:var(--mat);color:var(--mat-ink);padding:5px 7px;border-radius:4px}
+.pill{font:700 .7rem/1 var(--body);letter-spacing:.08em;text-transform:uppercase;background:var(--red);color:var(--red-ink);padding:5px 7px;border-radius:4px}
 .slot{padding:12px 14px;border-top:1px solid var(--line);display:grid;gap:2px}
 .slot:first-of-type{border-top:0}
 .slot time{font-weight:700;font-variant-numeric:tabular-nums}
@@ -105,35 +107,7 @@ nav a.cta{background:var(--gold);color:var(--gold-ink)}
 .cal-empty{min-height:280px;display:grid;place-items:center;text-align:center;padding:32px 20px;gap:10px;background:repeating-linear-gradient(135deg,var(--surface) 0 18px,var(--soft) 18px 36px)}
 .cal-empty > div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;max-width:44ch;display:grid;gap:8px}
 
-/* Galleri */
-.years{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-.years a{padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);text-decoration:none;font:700 1rem var(--body);font-variant-numeric:tabular-nums}
-.years a[aria-current="page"]{background:var(--mat);border-color:var(--mat);color:var(--mat-ink)}
-.events{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
-.event{display:grid;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.event:hover .cover{filter:brightness(1.06)}
-.cover{aspect-ratio:3/2;max-width:100%;display:grid;place-items:center;font:800 1.1rem/1 var(--display);color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:.08em}
-.cover img{width:100%;height:100%;object-fit:cover}
-.event .meta{padding:12px 14px;display:grid;gap:2px}
-.event b{font-size:1.05rem}
-.event span{color:var(--muted);font-size:.88rem}
-.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:16px;font-weight:600}
-.crumbs a{color:var(--accent-text)}
-.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
-.photos button{padding:0;border:0;background:none;cursor:zoom-in;border-radius:6px;overflow:hidden}
-.ph{aspect-ratio:1;max-width:100%;display:grid;place-items:center;color:rgba(255,255,255,.8);font:700 .85rem var(--body)}
-.ph img{width:100%;height:100%;object-fit:cover}
-.empty{padding:28px;border:1.5px dashed var(--line);border-radius:var(--r);color:var(--muted);text-align:center}
-.tag{display:inline-block;font:700 .7rem/1 var(--body);letter-spacing:.08em;text-transform:uppercase;padding:5px 7px;border-radius:4px;background:var(--gold);color:var(--gold-ink);vertical-align:middle;margin-left:6px}
 
-/* Lightbox */
-.lb:not([hidden]){position:fixed;inset:0;z-index:50;background:rgba(5,10,25,.92);display:grid;grid-template-rows:auto 1fr auto;padding:calc(12px + env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));color:#fff}
-.lb-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.lb-stage{display:grid;place-items:center;min-height:0}
-.lb-stage .ph{width:min(90vw,900px);max-height:70vh;aspect-ratio:3/2;border-radius:8px;font-size:1.2rem}
-.lb-stage img{max-width:100%;max-height:75vh;object-fit:contain}
-.lb-nav{display:flex;justify-content:center;gap:12px}
-.lb button{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:10px 16px;font:600 1rem var(--body);cursor:pointer}
 
 /* Judo4All */
 .j4a-band{background:var(--gold);color:var(--gold-ink)}
@@ -161,3 +135,9 @@ nav a.cta{background:var(--gold);color:var(--gold-ink)}
 
 footer{background:var(--mat);color:var(--mat-ink);font-size:.9rem}
 footer .wrap{padding-block:26px;display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+
+/* Logo */
+.logo{width:44px;height:44px;border-radius:8px;background:#ffffff;object-fit:contain;padding:3px;display:block}
+.hero-logo{width:112px;height:112px;border-radius:14px;background:#ffffff;object-fit:contain;padding:8px;display:block;margin-bottom:22px;box-shadow:0 0 0 4px var(--red)}
+@media (max-width:760px){.hero-logo{width:88px;height:88px}}
+.mark-big{width:96px;height:96px;font-size:2rem;margin-bottom:22px;background:var(--gold);box-shadow:0 0 0 4px var(--red)}

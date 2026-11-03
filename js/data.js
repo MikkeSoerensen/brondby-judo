@@ -1,5 +1,5 @@
 /* =========================================================
-   INDHOLD – her rettes trænere og galleri.
+   INDHOLD – her rettes trænere og kalender.
    Alt andet indhold står direkte i index.html.
    ========================================================= */
 
@@ -23,27 +23,6 @@ var COACHES = [
   {name: "Theis",                              grade: "",             photo: ""},
   {name: "Rami",                               grade: "Hjælpetræner", photo: ""}
 ];
-
-/* ---------- Galleri ----------
-   Opbygning: år -> events -> billeder.
-   "id" bliver til linket, fx #galleri-2025-fastelavn
-   "photos" er enten et antal (viser pladsholdere) eller en liste:
-     photos: [
-       {src: "billeder/galleri/2025/fastelavn/01.jpg", alt: "Børneholdet klædt ud"},
-       {src: "billeder/galleri/2025/fastelavn/02.jpg"}
-     ]
-   Fjern "example: true", når der er rigtige billeder. */
-var GALLERY = {
-  2026: [
-    {id: "cphcup", name: "CPH Cup 2026", date: "2026", example: true, photos: 12}
-  ],
-  2025: [
-    {id: "fastelavn", name: "Fastelavn 2025", date: "Februar 2025", example: true, photos: 9}
-  ],
-  2024: [],
-  2023: [],
-  2022: []
-};
 
 /* ---------- Kalender ----------
    Indsæt bestyrelsens delings-/embed-link mellem anførselstegnene.

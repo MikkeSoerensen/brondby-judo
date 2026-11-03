@@ -18,19 +18,18 @@ Tryk F12 i Chrome eller Edge og klik på telefon-ikonet (Toggle device toolbar).
 
 | Fil | Indhold |
 |---|---|
-| `index.html` | Al tekst: træningstider, Judo4All, priser, kontakt |
-| `js/data.js` | Trænere, galleri og kalender-link. **Her rettes det meste.** |
-| `js/app.js` | Sidens logik (menu, galleri, billedvisning). Skal normalt ikke rettes |
-| `css/style.css` | Farver og layout. Farverne står øverst under `:root` |
+| `index.html` | Al tekst: træningstider, Judo4All, priser, kontakt. Logoet står også her |
+| `js/data.js` | Trænere og kalender-link. **Her rettes det meste.** |
+| `js/app.js` | Sidens logik (menu, trænere, kalender). Skal normalt ikke rettes |
+| `css/style.css` | Farver og layout. Klubbens sort, rød og gul står øverst under `:root` |
 | `billeder/traenere/` | Nye trænerbilleder |
-| `billeder/galleri/` | Galleribilleder, fx `billeder/galleri/2025/fastelavn/01.jpg` |
 
 ## Typiske rettelser
 
 **Ny træner eller nyt billede:** tilføj en linje i `COACHES` i `js/data.js`.
 
-**Nyt galleri-event:** tilføj et event under det rigtige år i `GALLERY` i `js/data.js`.
-Linket til eventet bliver automatisk fx `index.html#galleri-2025-fastelavn`.
+**Logo:** læg logoet i `billeder/logo.png` og erstat de tre forekomster af
+`https://broendbyjudoklub.dk/wordpress/wp-content/uploads/BJKlogo.jpg` i `index.html` med `billeder/logo.png`.
 
 **Kalender:** sæt bestyrelsens embed-link i `CALENDAR_URL` i `js/data.js`.
 
@@ -41,5 +40,4 @@ Så får bestyrelsen et almindeligt link, de kan åbne på telefon eller compute
 
 ## Bemærk
 
-- Trænerbillederne hentes midlertidigt fra den nuværende hjemmeside. Hvis den lukkes, vises initialer, indtil nye billeder ligger i `billeder/traenere/`.
-- Fastelavn 2025 og CPH Cup 2026 i galleriet er eksempler med pladsholdere.
+- Logo og trænerbilleder hentes midlertidigt fra den nuværende hjemmeside. Hvis den lukkes, vises "BJK" og initialer, indtil filerne ligger i `billeder/`.

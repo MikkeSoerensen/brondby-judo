@@ -35,59 +35,11 @@
     slot.innerHTML='<div class="cal-empty"><div><h3>Kalenderen vises her</h3><p class="note">Bestyrelsens kalender indsættes i dette felt og opdateres automatisk, når der tilføjes aktiviteter.</p></div></div>';
   }
 
-  /* Galleri */
-  var years=Object.keys(GALLERY).sort(function(a,b){return b-a});
-  var yearsEl=document.getElementById('years'), view=document.getElementById('galleryView');
-  var hues=[222,212,232,200,240,218];
-  function tile(seed){var h=hues[seed%hues.length];return 'background:linear-gradient(135deg,hsl('+h+' 55% 32%),hsl('+(h+18)+' 60% 22%))'}
-  function photoList(ev){
-    if(Array.isArray(ev.photos)) return ev.photos;
-    var a=[];for(var i=0;i<ev.photos;i++)a.push({});return a;
-  }
-  var current=null;
-
-  function renderYear(y){
-    yearsEl.innerHTML=years.map(function(yr){return '<a href="#galleri-'+yr+'"'+(yr===y?' aria-current="page"':'')+'>'+yr+'</a>'}).join('');
-    var evs=GALLERY[y]||[];
-    if(!evs.length){view.innerHTML='<p class="empty">Der er ingen albums fra '+y+' endnu.</p>';return}
-    view.innerHTML='<div class="events">'+evs.map(function(ev,i){
-      var list=photoList(ev), c=list[0]&&list[0].src;
-      var cover=c?'<div class="cover"><img src="'+esc(c)+'" alt="" loading="lazy"></div>':'<div class="cover" style="'+tile(i+2)+'">'+esc(ev.name)+'</div>';
-      return '<a class="event" href="#galleri-'+y+'-'+esc(ev.id)+'">'+cover+'<div class="meta"><b>'+esc(ev.name)+(ev.example?'<span class="tag">Eksempel</span>':'')+'</b><span>'+esc(ev.date)+' · '+list.length+' billeder</span></div></a>';
-    }).join('')+'</div>';
-  }
-  function renderEvent(y,ev){
-    yearsEl.innerHTML=years.map(function(yr){return '<a href="#galleri-'+yr+'"'+(yr===y?' aria-current="page"':'')+'>'+yr+'</a>'}).join('');
-    var list=photoList(ev); current={ev:ev,list:list};
-    view.innerHTML='<div class="crumbs"><a href="#galleri-'+y+'">'+y+'</a><span aria-hidden="true">/</span><span>'+esc(ev.name)+'</span>'+(ev.example?'<span class="tag">Eksempelbilleder</span>':'')+'</div>'+
-      '<div class="photos">'+list.map(function(p,i){
-        var inner=p.src?'<img src="'+esc(p.src)+'" alt="'+esc(p.alt||ev.name)+'" loading="lazy">':'Billede '+(i+1);
-        return '<button data-i="'+i+'" aria-label="Vis billede '+(i+1)+'"><div class="ph" style="'+(p.src?'':tile(i))+'">'+inner+'</div></button>';
-      }).join('')+'</div>';
-  }
-  function route(){
-    var h=location.hash.replace('#','');
-    var m=/^galleri-(\d{4})(?:-([a-z0-9-]+))?$/.exec(h);
-    if(m&&GALLERY[m[1]]){
-      var ev=m[2]&&GALLERY[m[1]].filter(function(e){return e.id===m[2]})[0];
-      if(ev)renderEvent(m[1],ev);else renderYear(m[1]);
-      document.getElementById('galleri').scrollIntoView();
-    }else if(!view.innerHTML){renderYear(years.filter(function(y){return GALLERY[y].length})[0]||years[0])}
-  }
-  window.addEventListener('hashchange',route); route();
-
-  /* Lightbox */
-  var lb=document.getElementById('lb'), stage=document.getElementById('lbStage'), cnt=document.getElementById('lbCount'), idx=0;
-  function show(i){
-    var n=current.list.length; idx=(i+n)%n; var p=current.list[idx];
-    stage.innerHTML=p.src?'<img src="'+esc(p.src)+'" alt="'+esc(p.alt||current.ev.name)+'">':'<div class="ph" style="'+tile(idx)+'">Billede '+(idx+1)+'</div>';
-    cnt.textContent=current.ev.name+' · '+(idx+1)+' af '+n;
-  }
-  view.addEventListener('click',function(e){var b=e.target.closest('button[data-i]');if(!b)return;lb.hidden=false;show(+b.dataset.i);document.getElementById('lbClose').focus()});
-  document.getElementById('lbClose').onclick=function(){lb.hidden=true};
-  document.getElementById('lbPrev').onclick=function(){show(idx-1)};
-  document.getElementById('lbNext').onclick=function(){show(idx+1)};
-  document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')lb.hidden=true;if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1)});
+  /* Logo: vis "BJK" hvis billedet ikke kan hentes */
+  document.querySelectorAll('img[data-fallback]').forEach(function(im){
+    function swap(){var s=document.createElement('span');s.className='mark'+(im.classList.contains('hero-logo')?' mark-big':'');s.setAttribute('aria-hidden','true');s.textContent=im.dataset.fallback;im.replaceWith(s)}
+    if(im.complete&&im.naturalWidth===0)swap();else im.addEventListener('error',swap);
+  });
 
   /* Kopiér mail */
   document.querySelectorAll('.copy').forEach(function(b){
