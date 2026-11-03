@@ -30,7 +30,8 @@
   /* Kalender */
   var slot=document.getElementById('calSlot'), src=(typeof CALENDAR_URL!=='undefined'&&CALENDAR_URL)||slot.getAttribute('data-src');
   if(src){
-    slot.innerHTML='<iframe src="'+esc(src)+'" title="Brøndby Judo Klubs kalender" loading="lazy"></iframe>';
+    slot.innerHTML='<iframe src="'+esc(src)+'" title="Brøndby Judo Klubs kalender" loading="lazy"></iframe>'+
+      '<div class="cal-foot"><span class="note">Opdateres automatisk</span><a href="'+esc(src)+'" target="_blank" rel="noopener">Åbn kalenderen i stort format</a></div>';
   }else{
     slot.innerHTML='<div class="cal-empty"><div><h3>Kalenderen vises her</h3><p class="note">Bestyrelsens kalender indsættes i dette felt og opdateres automatisk, når der tilføjes aktiviteter.</p></div></div>';
   }

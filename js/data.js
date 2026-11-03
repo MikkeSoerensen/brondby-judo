@@ -25,6 +25,7 @@ var COACHES = [
 ];
 
 /* ---------- Kalender ----------
-   Indsæt bestyrelsens delings-/embed-link mellem anførselstegnene.
+   Kalenderen hentes direkte fra kalendersiden.dk, hver gang siden åbnes.
+   Ændringer i kalenderen vises derfor automatisk – her skal intet rettes.
    Tomt felt viser en pladsholder. */
-var CALENDAR_URL = "";
+var CALENDAR_URL = "https://kalendersiden.dk/embed/0Ddl2XufZa_8~1jvw";
