@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pensum · Brøndby Judo Klub</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Brøndby Judo Klubs pensum: kast og gulvteknikker for hvert bælte, med video og de vigtigste punkter.">
+<link rel="icon" href="https://broendbyjudoklub.dk/wordpress/wp-content/uploads/BJKlogo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>[hidden]{display:none!important}</style>
+<link rel="stylesheet" href="css/style.css?v=6">
+<link rel="stylesheet" href="css/pensum.css?v=6">
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><img class="logo" src="https://broendbyjudoklub.dk/wordpress/wp-content/uploads/BJKlogo.jpg" alt="" data-fallback="BJK">Brøndby Judo</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Hovedmenu">
+      <ul>
+        <li><a href="index.html#tider">Træning</a></li>
+        <li><a href="index.html#traenere">Trænere</a></li>
+        <li><a href="index.html#kalender">Kalender</a></li>
+        <li><a href="pensum.html" aria-current="page">Pensum</a></li>
+        <li><a class="cta" href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="p-hero">
+    <div class="wrap">
+      <p class="eyebrow" style="color:var(--gold)">Graduering</p>
+      <h1>Pensum</h1>
+      <p class="sub">Teknikkerne til hvert bælte, med video og de tre ting, du skal huske. Brug det til at øve dig derhjemme før næste graduering.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <aside class="proposal" aria-label="Forslag til bestyrelsen">
+      <strong>Forslag til bestyrelsen</strong>
+      <span>Skal pensum-arkivet med på den nye hjemmeside? Siden er et udkast og ikke offentlig endnu. Videoerne tilføjes, hvis I siger ja.</span>
+    </aside>
+
+    <div class="tools">
+      <div class="seg" role="group" aria-label="Type">
+        <button class="seg-btn" id="type-kast" data-type="kast" aria-pressed="true">Kast <small>Nage-waza</small></button>
+        <button class="seg-btn" id="type-gulv" data-type="gulv" aria-pressed="false">Gulv <small>Katame-waza</small></button>
+      </div>
+      <label class="search" for="q">
+        <span class="sr">Søg efter teknik</span>
+        <input id="q" type="search" placeholder="Søg, fx O-Goshi eller hofte" autocomplete="off">
+      </label>
+    </div>
+
+    <div class="belts-row" id="belts" role="group" aria-label="Bælte"></div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <div class="cards" id="cards"></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Brøndby Judo Klub · Brøndby Stadion 10, 2605 Brøndby</span>
+    <span><a href="index.html">Forside</a> · <a href="https://www.facebook.com/BrondbyJudoKlub/" target="_blank" rel="noopener">Facebook</a></span>
+  </div>
+</footer>
+
+<script src="js/pensum-data.js?v=6"></script>
+<script src="js/pensum.js?v=6"></script>
+</body>
+</html>

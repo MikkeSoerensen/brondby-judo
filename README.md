@@ -23,6 +23,9 @@ Tryk F12 i Chrome eller Edge og klik på telefon-ikonet (Toggle device toolbar).
 | `js/app.js` | Sidens logik (menu, trænere, kalender). Skal normalt ikke rettes |
 | `css/style.css` | Farver og layout. Klubbens sort, rød og gul står øverst under `:root` |
 | `billeder/traenere/` | Nye trænerbilleder |
+| `pensum.html` | Pensum-siden (forslag til bestyrelsen) |
+| `js/pensum-data.js` | Alle teknikker i pensum. **Her rettes pensum.** |
+| `video/` | Pensum-videoer (findes ikke endnu), fx `video/1.Gul/ogoshi.mp4` |
 
 ## Typiske rettelser
 
@@ -30,6 +33,8 @@ Tryk F12 i Chrome eller Edge og klik på telefon-ikonet (Toggle device toolbar).
 
 **Logo:** læg logoet i `billeder/logo.png` og erstat de tre forekomster af
 `https://broendbyjudoklub.dk/wordpress/wp-content/uploads/BJKlogo.jpg` i `index.html` med `billeder/logo.png`.
+
+**Pensum-videoer:** læg din `video`-mappe ind i projektmappen ved siden af `index.html`. Stierne i `js/pensum-data.js` passer allerede. Mangler en fil, viser kortet "Video tilføjes".
 
 **Kalender:** sæt bestyrelsens embed-link i `CALENDAR_URL` i `js/data.js`.
 
