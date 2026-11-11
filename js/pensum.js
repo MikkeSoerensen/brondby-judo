@@ -45,7 +45,7 @@
 
   function media(t,b){
     var badge='<span class="badge" style="background:var(--belt-'+b.v+');color:var(--belt-'+b.v+'-ink)">'+esc(b.label)+(b.kyu?' · '+esc(b.kyu):'')+'</span>';
-    var ph='<div class="no-video"><div><b>'+esc(t.name)+'</b>Video tilføjes</div></div>';
+    var ph='<div class="no-video"><div><b>'+esc(t.name)+'</b>Ingen video endnu</div></div>';
     if(t.youtube){
       return '<div class="media">'+badge+'<iframe src="https://www.youtube-nocookie.com/embed/'+esc(t.youtube)+'?rel=0" title="'+esc(t.name)+'" loading="lazy" allowfullscreen></iframe></div>';
     }
